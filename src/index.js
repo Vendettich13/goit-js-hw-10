@@ -1,10 +1,8 @@
 import './css/styles.css';
-import { searchCountry } from './fetchCountries';
+import { searchCountry } from './renders.js';
+import { refs } from './renders.js';
 
 const debounce = require('lodash.debounce');
-const refs = {
-  input: document.querySelector('#search-box'),
-};
 
 const DEBOUNCE_DELAY = 300;
 
