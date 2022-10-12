@@ -1,7 +1,7 @@
 import tplCountryMarkup from './templates/country-markup.hbs';
 import tplInfo from './templates/country-info.hbs';
 import Notiflix from 'notiflix';
-import { fetchCountries } from './fetchCountries';
+import { fetchCountries } from './fetchCountries.js';
 
 export const refs = {
   list: document.querySelector('.country-list'),
