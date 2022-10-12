@@ -1,5 +1,5 @@
 import Notiflix from 'notiflix';
-import reset from './fetchCountries';
+import reset from './renders';
 
 export function fetchCountries(name) {
   return fetch(
