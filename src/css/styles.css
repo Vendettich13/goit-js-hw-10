@@ -43,6 +43,9 @@ body {
 .card-pre-text {
   margin-right: 30px;
 }
-.list-info-title {
+.info-title {
   margin-left: 20px;
+}
+.info-list-item:not(:last-child) {
+  margin-bottom: 15px;
 }

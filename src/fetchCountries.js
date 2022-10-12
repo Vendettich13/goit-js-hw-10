@@ -7,6 +7,10 @@ const refs = {
   input: document.querySelector('#search-box'),
   listInfo: document.querySelector('.country-info'),
 };
+function reset() {
+  refs.list.innerHTML = '';
+  refs.listInfo.innerHTML = '';
+}
 
 function fetchCountries(name) {
   return fetch(
@@ -18,32 +22,27 @@ function fetchCountries(name) {
       } else return response.json();
     })
     .catch(() => {
+      reset();
       Notiflix.Notify.failure('Oops, there is no country with that name');
     });
 }
 function renderCountryCard(countries) {
   if (refs.input.value === '') {
-    refs.list.innerHTML = '';
+    reset();
   } else if (countries.length > 10) {
+    reset();
     Notiflix.Notify.info(
       'Too many matches found. Please enter a more specific name.'
     );
   } else if (countries.length >= 2 && countries.length <= 10) {
-    countries
-      .map(country => {
-        let infoMarkup = tplInfo(country);
-        refs.listInfo.innerHTML = infoMarkup;
-        refs.list.innerHTML = '';
-      })
-      .join('');
-  } else
-    countries
-      .map(country => {
-        let markup = tplCountryMarkup(country);
-        refs.listInfo.innerHTML = '';
-        refs.list.innerHTML = markup;
-      })
-      .join('');
+    let infoMarkup = tplInfo(countries);
+    refs.listInfo.innerHTML = infoMarkup;
+    refs.list.innerHTML = '';
+  } else {
+    let markup = tplCountryMarkup(countries);
+    refs.listInfo.innerHTML = '';
+    refs.list.innerHTML = markup;
+  }
 }
 
 export function searchCountry(e) {
