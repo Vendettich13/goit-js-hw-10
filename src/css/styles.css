@@ -18,3 +18,31 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+}
+.item {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+.title {
+  margin: 0 auto;
+}
+
+.card-img {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.card-title {
+  margin-left: 15px;
+}
+.card-pre-text {
+  margin-right: 30px;
+}
+.list-info-title {
+  margin-left: 20px;
+}
